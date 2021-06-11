@@ -15,4 +15,4 @@ if [[ ! $(curl -f -s -r 0-1 "${url}") ]]; then
 fi
 
 echo "Downloading Kafka from $url"
-wget "${url}" -O "/tmp/${FILENAME}"
+wget "${url}" -O "/tmp/${FILENAME}" || wget "${url/https/http}" --no-check-certificate -O "/tmp/${FILENAME}"
